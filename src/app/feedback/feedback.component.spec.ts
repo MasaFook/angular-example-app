@@ -33,7 +33,7 @@ describe('FeedbackComponent', () => {
   it('should mark phone valid when its value is 10 charecters', () =>{
     const ctrl = component.fbForm.get('phone');
     //testi arvon asetus
-    ctrl?.setValue('1234567890')
+    ctrl?.setValue('1234567890');
     fixture.detectChanges();
     //testaus
     expect(ctrl?.valid).toBeTruthy();
@@ -44,5 +44,22 @@ describe('FeedbackComponent', () => {
     // valitaan btn id:n avulla
     let button = instance.querySelector('#submitbtn');
     expect(button.disabled).toBeTruthy();
+  });
+
+  it('should enable submit btn when form is valid', () =>{
+    let instance = fixture.debugElement.nativeElement;
+    let ctrl = component.fbForm.get('title');
+    ctrl?.setValue('test');
+    ctrl = component.fbForm.get('description');
+    ctrl?.setValue('test');
+    ctrl = component.fbForm.get('name');
+    ctrl?.setValue('test');
+    ctrl = component.fbForm.get('email');
+    ctrl?.setValue('test@test.com');
+    ctrl = component.fbForm.get('phone');
+    ctrl?.setValue('1234567890');
+    fixture.detectChanges();
+    let button = instance.querySelector('#submitbtn');
+    expect(button.disabled).toBeFalsy();
   });
 });
