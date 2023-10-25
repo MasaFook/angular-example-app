@@ -25,9 +25,9 @@ describe('HomeComponent', () => {
     component = fixture.debugElement.componentInstance;
     spyOn(component, 'showFeedbackPage')
     fixture.detectChanges();
-    let instance = fixture.debugElement.nativeElement;
+    const instance = fixture.debugElement.nativeElement;
     // valitaan btn id:n avulla
-    let button = instance.querySelector('#feedbackbtn');
+    const button = instance.querySelector('#feedbackbtn');
     // testataan että btn:ssa on teksti ja todetaan että on renderöitynyt
     expect(button.textContent).toContain('Feedback page');
   });

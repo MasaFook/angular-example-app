@@ -40,14 +40,14 @@ describe('FeedbackComponent', () => {
   });
 
   it('submit btn is disabled when form is invalid', () =>{
-    let instance = fixture.debugElement.nativeElement;
+    const instance = fixture.debugElement.nativeElement;
     // valitaan btn id:n avulla
-    let button = instance.querySelector('#submitbtn');
+    const button = instance.querySelector('#submitbtn');
     expect(button.disabled).toBeTruthy();
   });
 
   it('should enable submit btn when form is valid', () =>{
-    let instance = fixture.debugElement.nativeElement;
+    const instance = fixture.debugElement.nativeElement;
     let ctrl = component.fbForm.get('title');
     ctrl?.setValue('test');
     ctrl = component.fbForm.get('description');
@@ -59,7 +59,7 @@ describe('FeedbackComponent', () => {
     ctrl = component.fbForm.get('phone');
     ctrl?.setValue('1234567890');
     fixture.detectChanges();
-    let button = instance.querySelector('#submitbtn');
+    const button = instance.querySelector('#submitbtn');
     expect(button.disabled).toBeFalsy();
   });
 });
